@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@material-ui/core/styles';
 //
-import DashboardNavbar from './DashboardNavbar';
-import DashboardSidebar from './DashboardSidebar';
+import MainNavbar from './MainNavbar';
+import MainSidebar from './MainSidebar';
 
 // ----------------------------------------------------------------------
 
@@ -32,13 +32,13 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function DashboardLayout() {
+export default function MainLayout() {
   const [open, setOpen] = useState(false);
 
   return (
     <RootStyle>
-      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
-      <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+      <MainNavbar onOpenSidebar={() => setOpen(true)} />
+      <MainSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <MainStyle>
         <Outlet />
       </MainStyle>

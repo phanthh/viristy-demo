@@ -1,14 +1,14 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
-import DashboardLayout from './layouts/dashboard';
+import MainLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import Login from './pages/Login';
 import Register from './pages/Register';
-import DashboardApp from './pages/DashboardApp';
-import Products from './pages/Products';
+import Profile from './pages/Profile';
+import Events from './pages/Events';
 import Blog from './pages/Blog';
-import User from './pages/User';
+import Team from './pages/Team';
 import NotFound from './pages/Page404';
 
 // ----------------------------------------------------------------------
@@ -16,13 +16,13 @@ import NotFound from './pages/Page404';
 export default function Router() {
   return useRoutes([
     {
-      path: '/dashboard',
-      element: <DashboardLayout />,
+      path: '/app',
+      element: <MainLayout />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard/app" replace /> },
-        { path: 'app', element: <DashboardApp /> },
-        { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
+        { path: '/', element: <Navigate to="/app/profile" replace /> },
+        { path: 'profile', element: <Profile /> },
+        { path: 'team', element: <Team /> },
+        { path: 'events', element: <Events /> },
         { path: 'blog', element: <Blog /> }
       ]
     },
@@ -33,7 +33,7 @@ export default function Router() {
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
         { path: '404', element: <NotFound /> },
-        { path: '/', element: <Navigate to="/dashboard" /> },
+        { path: '/', element: <Navigate to="/app" /> },
         { path: '*', element: <Navigate to="/404" /> }
       ]
     },

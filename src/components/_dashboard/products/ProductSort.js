@@ -10,18 +10,20 @@ import { Menu, Button, MenuItem, Typography } from '@material-ui/core';
 const SORT_BY_OPTIONS = [
   { value: 'featured', label: 'Featured' },
   { value: 'newest', label: 'Newest' },
-  { value: 'priceDesc', label: 'Price: High-Low' },
-  { value: 'priceAsc', label: 'Price: Low-High' }
+  { value: 'prizeDesc', label: 'Prize: High-Low' },
+  { value: 'prizeAsc', label: 'Prize: Low-High' }
 ];
 
 export default function ShopProductSort() {
   const [open, setOpen] = useState(null);
+  const [selected, setSelected] = useState(SORT_BY_OPTIONS[1]);
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (option) => {
+    setSelected(option);
     setOpen(null);
   };
 
@@ -35,7 +37,7 @@ export default function ShopProductSort() {
       >
         Sort By:&nbsp;
         <Typography component="span" variant="subtitle2" sx={{ color: 'text.secondary' }}>
-          Newest
+          {selected.label}
         </Typography>
       </Button>
       <Menu
@@ -50,7 +52,7 @@ export default function ShopProductSort() {
           <MenuItem
             key={option.value}
             selected={option.value === 'newest'}
-            onClick={handleClose}
+            onClick={() => handleClose(option)}
             sx={{ typography: 'body2' }}
           >
             {option.label}

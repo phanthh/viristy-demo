@@ -38,11 +38,11 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-DashboardNavbar.propTypes = {
+MainNavbar.propTypes = {
   onOpenSidebar: PropTypes.func
 };
 
-export default function DashboardNavbar({ onOpenSidebar }) {
+export default function MainNavbar({ onOpenSidebar }) {
   return (
     <RootStyle>
       <ToolbarStyle>

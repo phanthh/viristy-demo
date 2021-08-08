@@ -11,11 +11,11 @@ import {
   ProductFilterSidebar
 } from '../components/_dashboard/products';
 //
-import PRODUCTS from '../_mocks_/products';
+import EVENTS from '../_mocks_/events';
 
 // ----------------------------------------------------------------------
 
-export default function EcommerceShop() {
+export default function Events() {
   const [openFilter, setOpenFilter] = useState(false);
 
   const formik = useFormik({
@@ -47,10 +47,10 @@ export default function EcommerceShop() {
   };
 
   return (
-    <Page title="Dashboard: Products | Minimal-UI">
+    <Page title="Events | Viristy Demo">
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Products
+          Events
         </Typography>
 
         <Stack
@@ -72,7 +72,7 @@ export default function EcommerceShop() {
           </Stack>
         </Stack>
 
-        <ProductList products={PRODUCTS} />
+        <ProductList products={EVENTS} />
         <ProductCartWidget />
       </Container>
     </Page>

@@ -32,14 +32,23 @@ const AccountStyle = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.grey[200]
 }));
 
+const CompanyName = styled('div')(({ theme }) => ({
+  ...theme.typography.h4,
+  color: theme.palette.primary.main,
+  display: 'flex',
+  padding: theme.spacing(0, 1.5),
+  alighItems: 'center',
+  alignSelf: 'center'
+}));
+
 // ----------------------------------------------------------------------
 
-DashboardSidebar.propTypes = {
+MainSidebar.propTypes = {
   isOpenSidebar: PropTypes.bool,
   onCloseSidebar: PropTypes.func
 };
 
-export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
+export default function MainSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -56,9 +65,18 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         '& .simplebar-content': { height: '100%', display: 'flex', flexDirection: 'column' }
       }}
     >
-      <Box sx={{ px: 2.5, py: 3 }}>
-        <Box component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>
+      <Box
+        sx={{
+          px: 2.5,
+          py: 3,
+          display: 'flex',
+          justifyContent: 'center',
+          alighItems: 'center'
+        }}
+      >
+        <Box component={RouterLink} to="/" sx={{ display: 'inline-flex', textDecoration: 'none' }}>
           <Logo />
+          <CompanyName>Virsity</CompanyName>
         </Box>
       </Box>
 
@@ -102,10 +120,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
           <Box sx={{ textAlign: 'center' }}>
             <Typography gutterBottom variant="h6">
-              Get more?
+              Have a Question ?
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              From only $69
+              Feel free to contact us !
             </Typography>
           </Box>
 
@@ -115,7 +133,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             target="_blank"
             variant="contained"
           >
-            Upgrade to Pro
+            Contact
           </Button>
         </Stack>
       </Box>

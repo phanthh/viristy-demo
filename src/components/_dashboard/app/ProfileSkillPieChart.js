@@ -31,9 +31,9 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 1443, 4443];
+const CHART_DATA = [25, 30, 14, 11];
 
-export default function AppCurrentVisits() {
+export default function ProfileSkillPieChart() {
   const theme = useTheme();
 
   const chartOptions = merge(BaseOptionChart(), {
@@ -43,7 +43,7 @@ export default function AppCurrentVisits() {
       theme.palette.warning.main,
       theme.palette.error.main
     ],
-    labels: ['America', 'Asia', 'Europe', 'Africa'],
+    labels: ['UI Design', 'UX Research', 'Design Interaction', 'Wireframing'],
     stroke: { colors: [theme.palette.background.paper] },
     legend: { floating: true, horizontalAlign: 'center' },
     dataLabels: { enabled: true, dropShadow: { enabled: false } },
@@ -63,7 +63,7 @@ export default function AppCurrentVisits() {
 
   return (
     <Card>
-      <CardHeader title="Current Visits" />
+      <CardHeader title="Skill points" />
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="pie" series={CHART_DATA} options={chartOptions} height={280} />
       </ChartWrapperStyle>
